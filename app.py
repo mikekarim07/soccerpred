@@ -52,8 +52,8 @@ def predict_match(model, local_team, away_team, data_columns):
     input_data = pd.DataFrame(0, index=[0], columns=data_columns)
 
     # Activar las columnas correspondientes a los equipos seleccionados
-    input_data[f'HTShortName_{local_team}'] = 1
-    input_data[f'ATShortName_{away_team}'] = 1
+    input_data[f'Home Team Short Name_{local_team}'] = 1
+    input_data[f'Away Team Short Name_{away_team}'] = 1
 
     # Predecir resultado
     prediction = model.predict(input_data)[0]
@@ -81,8 +81,8 @@ def main():
         st.write(f"Precisión del modelo: {accuracy * 100:.2f}%")
 
         # Obtener nombres únicos de equipos
-        local_teams = data['HTShortName'].unique()
-        away_teams = data['ATShortName'].unique()
+        local_teams = data['Home Team Short Name'].unique()
+        away_teams = data['Away Team Short Name'].unique()
 
         # Entrada para predicción
         st.write("### Predicción de un partido")
