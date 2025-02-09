@@ -26,7 +26,7 @@ def preprocess_data(data):
 # Entrenar el modelo
 def train_model(data):
     # Crear características basadas en equipos
-    data = pd.get_dummies(data, columns=['HTShortName', 'ATShortName'], drop_first=True)
+    data = pd.get_dummies(data, columns=['Home Team Short Name', 'Away Team Short Name'], drop_first=True)
     
     # Seleccionar características y etiquetas
     X = data.drop(['Winner', 'Result'], axis=1)
