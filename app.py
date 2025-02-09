@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report
 # Preprocesamiento de datos
 def preprocess_data(data):
     # Filtrar columnas relevantes
-    data = data[['Home Team Short Name, 'Away Team Short Name', 'Winner', 
+    data = data[['Home Team Short Name', 'Away Team Short Name', 'Winner', 
                  'Full Time Home Team Goals', 'Full Time Away Team Goals',
                  'Home Team Points','Home Team Matches Played','Home Team Home Games Played','Home Team Home Games Win','Home Team Home Games Draw',
                  'Home Team Home Games Lost','Home Team Home Goals Scored','Home Team Home Goals Received','Home Team Home Points','matchday',
