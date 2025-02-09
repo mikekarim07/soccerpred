@@ -72,6 +72,9 @@ def main():
             
         #lineas codigo nuevas
         data = data[data['status']=='FINISHED']
+        league = data['LeagueName'].unique()
+        st.write("### Elige una liga para realizar el entrenamiento del modelo")
+        league_name = st.selectbox("Selecciona la liga", options=league)
         st.dataframe(data)
         #final lineas codigo nuevas
         data = preprocess_data(data)
