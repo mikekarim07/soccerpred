@@ -72,6 +72,9 @@ def main():
         data = preprocess_data(data)
 
         st.write("Vista previa de los datos:")
+        st.write(type(data))  # Verifica que sea un DataFrame
+        st.write(data.shape)  # Revisa cuántas filas y columnas tiene
+
         st.dataframe(data.head())
 
         # Entrenar modelo
