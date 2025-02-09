@@ -7,6 +7,12 @@ from sklearn.metrics import accuracy_score, classification_report
 
 # Preprocesamiento de datos
 def preprocess_data(data):
+    #lineas codigo nuevas
+    data = data[data['status']=='FINISHED']
+
+
+
+    
     # Filtrar columnas relevantes
     data = data[['Home Team Short Name', 'Away Team Short Name', 'Winner', 
                  'Full Time Home Team Goals', 'Full Time Away Team Goals',
