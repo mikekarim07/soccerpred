@@ -7,12 +7,6 @@ from sklearn.metrics import accuracy_score, classification_report
 
 # Preprocesamiento de datos
 def preprocess_data(data):
-    #lineas codigo nuevas
-    data = data[data['status']=='FINISHED']
-
-
-
-    
     # Filtrar columnas relevantes
     data = data[['Home Team Short Name', 'Away Team Short Name', 'Winner', 
                  'Full Time Home Team Goals', 'Full Time Away Team Goals',
@@ -75,11 +69,16 @@ def main():
 
     if uploaded_file:
         data = pd.read_excel(uploaded_file, sheet_name='Data')
+            
+        #lineas codigo nuevas
+        data = data[data['status']=='FINISHED']
+        st.dataframe(data)
+        #final lineas codigo nuevas
         data = preprocess_data(data)
 
         st.write("Vista previa de los datos:")
-        st.write(type(data))  # Verifica que sea un DataFrame
-        st.write(data.shape)  # Revisa cuántas filas y columnas tiene
+        #st.write(type(data))  # Verifica que sea un DataFrame
+        #st.write(data.shape)  # Revisa cuántas filas y columnas tiene
 
         st.dataframe(data.head())
 
