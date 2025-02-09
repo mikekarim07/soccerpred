@@ -83,7 +83,8 @@ def main():
         #st.write(type(data))  # Verifica que sea un DataFrame
         #st.write(data.shape)  # Revisa cuántas filas y columnas tiene
 
-        st.dataframe(data.head())
+        #st.dataframe(data.head())
+        st.dataframe(data)
 
         # Entrenar modelo
         st.write("Entrenando el modelo...")
