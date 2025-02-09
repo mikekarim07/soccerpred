@@ -12,8 +12,8 @@ def preprocess_data(data):
                  'Full Time Home Team Goals', 'Full Time Away Team Goals',
                  'Home Team Points','Home Team Matches Played','Home Team Home Games Played','Home Team Home Games Win','Home Team Home Games Draw',
                  'Home Team Home Games Lost','Home Team Home Goals Scored','Home Team Home Goals Received','Home Team Home Points','matchday',
-                'Away Team Points','Away Team Matches Played','Away Team Away Games Played','Away Team Away Games Win','Away Team Away Games Draw',
-                 'Away Team Away Games Lost','Away Team Away+ Goals Scored','Home Team Home Goals Received','Home Team Home Points']]
+                 'Away Team Points','Away Team Matches Played','Away Team Away Games Played','Away Team Away Games Win','Away Team Away Games Draw',
+                 'Away Team Away Games Lost','Away Team Away Goals Scored','Home Team Home Goals Received','Home Team Home Points']]
     
     # Crear variable de resultado
     data['Result'] = data['Winner'].map({'HOME_TEAM': 1, 'DRAW': 0, 'AWAY_TEAM': -1})
