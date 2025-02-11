@@ -68,46 +68,46 @@ def main():
     #uploaded_file = st.file_uploader("Sube un archivo de Excel con la información de los partidos", type=["xlsx"])
     data = pd.read_excel("Copilot.xlsx", sheet_name='Data')
     
-    if st.button("Run Prediction Model"):
+    #if st.button("Run Prediction Model"):
     #data = pd.read_excel(uploaded_file, sheet_name='Data')
             
-        #lineas codigo nuevas
-        data = data[data['status']=='FINISHED']
-        league = data['LeagueName'].unique()
-        st.write("### Elige una liga para realizar el entrenamiento del modelo")
-        league_name = st.selectbox("Selecciona la liga", options=league)
-        data = data[data['LeagueName']==league_name]
-        st.dataframe(data)
-        #final lineas codigo nuevas
-        data = preprocess_data(data)
+    #lineas codigo nuevas
+    data = data[data['status']=='FINISHED']
+    league = data['LeagueName'].unique()
+    st.write("### Elige una liga para realizar el entrenamiento del modelo")
+    league_name = st.selectbox("Selecciona la liga", options=league)
+    data = data[data['LeagueName']==league_name]
+    st.dataframe(data)
+    #final lineas codigo nuevas
+    data = preprocess_data(data)
 
-        st.write("Vista previa de los datos:")
-        #st.write(type(data))  # Verifica que sea un DataFrame
-        #st.write(data.shape)  # Revisa cuántas filas y columnas tiene
+    st.write("Vista previa de los datos:")
+    #st.write(type(data))  # Verifica que sea un DataFrame
+    #st.write(data.shape)  # Revisa cuántas filas y columnas tiene
 
-        #st.dataframe(data.head())
-        st.dataframe(data)
+    #st.dataframe(data.head())
+    st.dataframe(data)
 
-        # Entrenar modelo
-        st.write("Entrenando el modelo...")
-        model, accuracy, report, X = train_model(data)
+    # Entrenar modelo
+    st.write("Entrenando el modelo...")
+    model, accuracy, report, X = train_model(data)
 
-        st.write(f"Precisión del modelo: {accuracy * 100:.2f}%")
+    st.write(f"Precisión del modelo: {accuracy * 100:.2f}%")
 
-        # Obtener nombres únicos de equipos
-        local_teams = data['Home Team Short Name'].unique()
-        away_teams = data['Away Team Short Name'].unique()
+    # Obtener nombres únicos de equipos
+    local_teams = data['Home Team Short Name'].unique()
+    away_teams = data['Away Team Short Name'].unique()
 
-        # Entrada para predicción
-        st.write("### Predicción de un partido")
-        local_team = st.selectbox("Selecciona el equipo local", options=local_teams)
-        away_team = st.selectbox("Selecciona el equipo visitante", options=away_teams)
+    # Entrada para predicción
+    st.write("### Predicción de un partido")
+    local_team = st.selectbox("Selecciona el equipo local", options=local_teams)
+    away_team = st.selectbox("Selecciona el equipo visitante", options=away_teams)
 
-        if st.button("Predecir Resultado"):
-            result, probabilities = predict_match(model, local_team, away_team, X.columns)
-            result_text = "Local" if result == 1 else "Empate" if result == 0 else "Visitante"
-            st.write(f"Resultado predicho: {result_text}")
-            st.write(f"Probabilidades: Local {probabilities[1]:.2%}, Empate {probabilities[0]:.2%}, Visitante {probabilities[2]:.2%}")
+    if st.button("Predecir Resultado"):
+        result, probabilities = predict_match(model, local_team, away_team, X.columns)
+        result_text = "Local" if result == 1 else "Empate" if result == 0 else "Visitante"
+        st.write(f"Resultado predicho: {result_text}")
+        st.write(f"Probabilidades: Local {probabilities[1]:.2%}, Empate {probabilities[0]:.2%}, Visitante {probabilities[2]:.2%}")
 
 if __name__ == "__main__":
     main()
