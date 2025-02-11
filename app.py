@@ -65,10 +65,10 @@ def main():
     st.title("Predicción de Resultados de Fútbol")
 
     # Subir archivo
-    uploaded_file = st.file_uploader("Sube un archivo de Excel con la información de los partidos", type=["xlsx"])
-
-    if uploaded_file:
-        data = pd.read_excel(uploaded_file, sheet_name='Data')
+    #uploaded_file = st.file_uploader("Sube un archivo de Excel con la información de los partidos", type=["xlsx"])
+    data = pd.read_excel("Copilot.xlsx", sheet_name='Data')
+    if data:
+        #data = pd.read_excel(uploaded_file, sheet_name='Data')
             
         #lineas codigo nuevas
         data = data[data['status']=='FINISHED']
