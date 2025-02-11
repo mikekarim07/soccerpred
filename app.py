@@ -62,13 +62,13 @@ def predict_match(model, local_team, away_team, data_columns):
 
 # Cargar archivo de usuario
 def main():
-    st.title("Predicción de Resultados de Fútbol")
+    st.title("Prediction Model")
 
     # Subir archivo
     #uploaded_file = st.file_uploader("Sube un archivo de Excel con la información de los partidos", type=["xlsx"])
     data = pd.read_excel("Copilot.xlsx", sheet_name='Data')
     
-    if st.button("Predecir Resultado"):
+    if st.button("Run Prediction Model"):
     #data = pd.read_excel(uploaded_file, sheet_name='Data')
             
         #lineas codigo nuevas
