@@ -62,7 +62,7 @@ def predict_match(model, local_team, away_team, data_columns):
 
 # Cargar archivo de usuario
 def main():
-    st.title("Prediction Model")
+    st.title("Prediction Model de Papa y Sebaspunk")
 
     # Subir archivo
     #uploaded_file = st.file_uploader("Sube un archivo de Excel con la información de los partidos", type=["xlsx"])
